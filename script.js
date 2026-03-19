@@ -43,8 +43,12 @@ function abrirLoja() {
     if (choose) alterarVida(30);
 }
 
-function valorEspecial() {
+function ataqueEspecial() {
     vidaInimigo -= 25;
     if (vidaInimigo < 0) vidaInimigo = 0;
     let barra = document.getElementById("vida-inimigo");
+    barra.style.width = vidaInimigo + "%";
+    document.getElementById("enemy").style.transform = "scale(1.2)";
+    setTimeout(()=> document.getElementById("enemy").style.transform = "scale(1)", 200);
+    if (vidaInimigo === 0) document.getElementById("dialogo").innerText = "Você venceu!";
 }
